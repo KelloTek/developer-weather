@@ -23,7 +23,6 @@ document.getElementById("username").addEventListener("click", async (e) => {
 
     const username = prompt("Enter your user name:")
     const password = prompt("Enter your password:")
-    //AIzaSyDTd7k0dnBE5zFoL-e_2TV2rOgHVjXqvLc
 
     if(!username || !password) {
         alert("Please provide username and password!")
