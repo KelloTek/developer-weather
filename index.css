@@ -11,16 +11,24 @@ h1 {
     text-align:center;
 }
 
-/* Weather */
-.weather-container {
+/* Navigation Bar */
+nav {
     display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
-    width: 100%;
+    justify-content: end;
+    padding: 10px;
 }
 
-.weather {
-    width: 70%;
+.nav-account-container {
+    display: flex;
+}
+
+#username {
+    margin-right: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 /* GRILLE D'ICÔNES */
@@ -52,14 +60,26 @@ h1 {
     padding-right: 5px;
 }
 
-/* --- STYLE DES SVG (64x64) --- */
-.icon-container svg {
-    width: 64px;
-    height: 64px;
-    display: block;
+/* List user */
+#users-container {
+    margin-top: 100px;
 }
 
-.bootIcon {
-    font-size: 64px;
-    color: #CD0034;
+#users-container h2 {
+    text-align: center;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user h2 {
+    margin-right: 30px;
+}
+
+.user-icon {
+    margin-right: 10px;
 }

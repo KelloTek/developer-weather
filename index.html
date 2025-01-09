@@ -1,242 +1,247 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <title>Developer weather</title>
-</head>
-<body>
-  <!-- Weather -->
-  <div class="weather-container">
-    <div class="weather" id="weatherapi-weather-widget-3"></div>
-  </div>
-
-  <h1>Select your weather</h1>
-
-  <!-- Icon Grid -->
-  <div class="icon-grid">
-    <!-- 1. All Tests Green -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="1" type="solid" name="badge-check" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>All Tests Green</p>
-        <p id="counter-1">(0)</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Developer weather</title>
+  </head>
+  <body>
+    <nav>
+      <div style="display: flex; justify-content: end;">
+        <div class="nav-account-container">
+          <button id="username">Login</button>
+          <box-icon type="solid" name="user-circle" color="#0ea5e9" size="64px"></box-icon>
+        </div>
       </div>
-    </div>
+    </nav>
 
-    <!-- 2. Bug Detected -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="2" type="solid" name="bug" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Bug Detected</p>
-        <p id="counter-2">(0)</p>
+    <h1>Select your weather</h1>
+
+    <!-- Icon Grid -->
+    <main class="icon-grid">
+      <!-- 1. All Tests Green -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="badge-check" data-type="solid" type="solid" name="badge-check" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>All Tests Green</p>
+          <p id="counter-badge-check">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 3. Merge Conflict -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="3" name="git-merge" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Merge Conflict</p>
-        <p id="counter-3">(0)</p>
+      <!-- 2. Bug Detected -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="bug" data-type="solid" type="solid" name="bug" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Bug Detected</p>
+          <p id="counter-bug">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 4. Work in Progress (WIP) -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="4" type="solid" name="briefcase" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>WIP</p>
-        <p id="counter-4">(0)</p>
+      <!-- 3. Merge Conflict -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="git-merge" data-type="none" type="none" name="git-merge" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Merge Conflict</p>
+          <p id="counter-git-merge">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 5. Refactoring -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="5" name="code-curly" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Refactoring</p>
-        <p id="counter-5">(0)</p>
+      <!-- 4. Work in Progress (WIP) -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="briefcase" data-type="solid" type="solid" name="briefcase" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>WIP</p>
+          <p id="counter-briefcase">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 6. Pull Request -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="6" name="git-pull-request" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Pull Request</p>
-        <p id="counter-6">(0)</p>
+      <!-- 5. Refactoring -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="code-curly" data-type="none" type="none" name="code-curly" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Refactoring</p>
+          <p id="counter-code-curly">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 7. Deployment -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="7" type="solid" name="send" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Deployment</p>
-        <p id="counter-7">(0)</p>
+      <!-- 6. Pull Request -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="git-pull-request" data-type="none" type="none" name="git-pull-request" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Pull Request</p>
+          <p id="counter-git-pull-request">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 8. Downtime -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="8" type="solid" name="bed" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Downtime</p>
-        <p id="counter-8">(0)</p>
+      <!-- 7. Deployment -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="send" data-type="solid" type="solid" name="send" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Deployment</p>
+          <p id="counter-send">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 9. Hotfix -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="9" type="solid" name="hard-hat" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Hotfix</p>
-        <p id="counter-9">(0)</p>
+      <!-- 8. Downtime -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="bed" data-type="solid" type="solid" name="bed" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Downtime</p>
+          <p id="counter-bed">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 10. Syntax Error -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="10" type="solid" name="error" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Syntax Error</p>
-        <p id="counter-10">(0)</p>
+      <!-- 9. Hotfix -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="hard-hat" data-type="solid" type="solid" name="hard-hat" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Hotfix</p>
+          <p id="counter-hard-hat">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 11. Brainstorm -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="11" type="solid" name="brain" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Brainstorm</p>
-        <p id="counter-11">(0)</p>
+      <!-- 10. Syntax Error -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="error" data-type="solid" type="solid" name="error" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Syntax Error</p>
+          <p id="counter-error">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 12. Code Freeze -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="12" type="solid" name="traffic-barrier" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Code Freeze</p>
-        <p id="counter-12">(0)</p>
+      <!-- 11. Brainstorm -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="brain" data-type="solid" type="solid" name="brain" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Brainstorm</p>
+          <p id="counter-brain">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 13. Release -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="13" type="solid" name="downvote" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Release</p>
-        <p id="counter-13">(0)</p>
+      <!-- 12. Code Freeze -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="traffic-barrier" data-type="solid" type="solid" name="traffic-barrier" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Code Freeze</p>
+          <p id="counter-traffic-barrier">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 14. Zen -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="14" type="solid" name="leaf" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Zen</p>
-        <p id="counter-14">(0)</p>
+      <!-- 13. Release -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="downvote" data-type="solid" type="solid" name="downvote" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Release</p>
+          <p id="counter-downvote">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 15. Happy -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="15" name="happy" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Happy</p>
-        <p id="counter-15">(0)</p>
+      <!-- 14. Zen -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="leaf" data-type="solid" type="solid" name="leaf" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Zen</p>
+          <p id="counter-leaf">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 16. Sad -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="16" name="sad" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Sad</p>
-        <p id="counter-16">(0)</p>
+      <!-- 15. Happy -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="happy" data-type="solid" type="solid" name="happy" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Happy</p>
+          <p id="counter-happy">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 17. Angry -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="17" name="angry" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Angry</p>
-        <p id="counter-17">(0)</p>
+      <!-- 16. Sad -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="sad" data-type="solid" type="solid" name="sad" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Sad</p>
+          <p id="counter-sad">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 18. Dizzy -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="18" name="dizzy" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Dizzy</p>
-        <p id="counter-18">(0)</p>
+      <!-- 17. Angry -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="angry" data-type="solid" type="solid" name="angry" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Angry</p>
+          <p id="counter-angry">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 19. Sun -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="19" name="sun" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Sun</p>
-        <p id="counter-19">(0)</p>
+      <!-- 18. Dizzy -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="dizzy" data-type="solid" type="solid" name="dizzy" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Dizzy</p>
+          <p id="counter-dizzy">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 20. Sunglasses -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="20" name="glasses-alt" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Sunglasses</p>
-        <p id="counter-20">(0)</p>
+      <!-- 19. Sun -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="sun" data-type="solid" type="solid" name="sun" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Sun</p>
+          <p id="counter-sun">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 21. Laughing -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="21" name="laugh" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Laughing</p>
-        <p id="counter-21">(0)</p>
+      <!-- 20. Sunglasses -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="glasses-alt" data-type="none" type="none" name="glasses-alt" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Sunglasses</p>
+          <p id="counter-glasses-alt">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 22. Storm -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="22" name="cloud-lightning" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Storm</p>
-        <p id="counter-22">(0)</p>
+      <!-- 21. Laughing -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="laugh" data-type="solid" type="solid" name="laugh" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Laughing</p>
+          <p id="counter-laugh">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 23. Empty Battery -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="23" type="solid" name="battery-low" color="#0ea5e9" size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Empty Battery</p>
-        <p id="counter-23">(0)</p>
+      <!-- 22. Storm -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="cloud-lightning" data-type="none" type="none" name="cloud-lightning" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Storm</p>
+          <p id="counter-cloud-lightning">(0)</p>
+        </div>
       </div>
-    </div>
 
-    <!-- 24. Full Battery -->
-    <div class="icon-container">
-      <box-icon class="icon" data-id="24" type="solid" name="battery-full" color="#0ea5e9 " size="64px"></box-icon>
-      <div class="icon-label">
-        <p>Full Battery</p>
-        <p id="counter-24">(0)</p>
+      <!-- 23. Empty Battery -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="battery-low" data-type="solid" type="solid" name="battery-low" color="#0ea5e9" size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Empty Battery</p>
+          <p id="counter-battery-low">(0)</p>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <script type='text/javascript' src='https://www.weatherapi.com/weather/widget.ashx?loc=770053&wid=3&tu=1&div=weatherapi-weather-widget-3' async></script>
-  <noscript><a href="https://www.weatherapi.com/weather/q/clermont-ferrand-770053" alt="Hour by hour Clermont-Ferrand weather">10 day hour by hour Clermont-Ferrand weather</a></noscript>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src="weather-icon.js"></script>
-</body>
+      <!-- 24. Full Battery -->
+      <div class="icon-container">
+        <box-icon class="icon" data-id="battery-full" data-type="solid" type="solid" name="battery-full" color="#0ea5e9 " size="64px"></box-icon>
+        <div class="icon-label">
+          <p>Full Battery</p>
+          <p id="counter-battery-full">(0)</p>
+        </div>
+      </div>
+    </main>
+
+    <section id="users-container">
+    </section>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script type="module" src="scripts/weather.js"></script>
+  </body>
 </html>
