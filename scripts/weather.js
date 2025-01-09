@@ -32,14 +32,6 @@ document.getElementById("username").addEventListener("click", async (e) => {
 
     try {
         const firebaseConfig = {
-            apiKey: password,
-            authDomain: "developer-weather-api.firebaseapp.com",
-            databaseURL: "https://developer-weather-api-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "developer-weather-api",
-            storageBucket: "developer-weather-api.firebasestorage.app",
-            messagingSenderId: "797252307932",
-            appId: "1:797252307932:web:13edee4e2a867544955d19",
-            measurementId: "G-WRPNWJ4XXY"
         }
 
         app = initializeApp(firebaseConfig)
