@@ -30,6 +30,7 @@ document.getElementById("username").addEventListener("click", async (e) => {
     }
 
     try {
+        // Empty because firebase security is not optimal for the front end
         const firebaseConfig = {
         }
 
