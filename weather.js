@@ -159,7 +159,7 @@ async function fetchUserIcons() {
                     if(userIcons[iconId] === true) {
                         const icon = document.createElement("div")
                         icon.classList.add("user-icon")
-                        icon.innerHTML = `<box-icon type="${type}" name="${iconId}" color="#0ea5e9" size="32px"></box-icon> `
+                        icon.innerHTML = `<box-icon type="${type}" name="${iconId}" size="32px"></box-icon> `
                         userDiv.appendChild(icon)
                     }
                 }

@@ -55,6 +55,10 @@ nav {
     display: flex;
 }
 
+.account-icon {
+    fill: #0ea5e9;
+}
+
 #username {
     margin-right: 0px;
     border-color: transparent;
@@ -91,6 +95,10 @@ nav {
 
 .icon-label p {
     padding-right: 5px;
+}
+
+.icon {
+    fill: #0ea5e9;
 }
 
 /* List user */
