@@ -26,36 +26,50 @@ document.getElementById("username").addEventListener("click", async (e) => {
 
     if(!username || !password) {
         alert("Please provide username and password!")
-        return
-    }
+    } else {
+        try {
+            // Empty because firebase security is not optimal for the front end
+            const firebaseConfig = {
+              };
+    
+            app = initializeApp(firebaseConfig)
+            database = getDatabase(app)
+    
+            // Check if password is true
+            const passwordRef = ref(database, "password")
+            const snapshotPasswod = await get(passwordRef)
+    
+            if(snapshotPasswod.exists()) {
+                if(snapshotPasswod.val() === password) {
+                    // Check if the user exists
+                    const userRef = ref(database, `users/${username}`)
+                    const snapshotUser = await get(userRef)
+    
+                    if(snapshotUser.exists()) {
+                        alert("Successful connection!")
+                        currentUser = username
+                        getIcon()
+                        fetchUserIcons()
+                    } else {
+                        alert("Account creation successfully completed!")
+                        currentUser = username
+                        await createNewUser(username)
+                        getIcon()
+                        fetchUserIcons()
+                    }
 
-    try {
-        // Empty because firebase security is not optimal for the front end
-        const firebaseConfig = {
+                    setInterval(getIcon, 5000)
+                    setInterval(fetchUserIcons, 5000)
+                } else {
+                    alert("Wrong password!")
+                }
+            } else {
+                alert("Erreur: Hachage introuvable")
+            }
+        } catch(error) {
+            alert("Connection error: ", error)
+            console.error(error)
         }
-
-        app = initializeApp(firebaseConfig)
-        database = getDatabase(app)
-
-        // Check if the user exists
-        const userRef = ref(database, `users/${username}`)
-
-        const snapshot = await get(userRef)
-        if(snapshot.exists()) {
-            alert("Successful connection!")
-            currentUser = username
-            getIcon()
-            fetchUserIcons()
-        } else {
-            alert("Account creation successfully completed!")
-            currentUser = username
-            await createNewUser(username)
-            getIcon()
-            fetchUserIcons()
-        }
-    } catch(error) {
-        alert("Connection error: ", error)
-        console.error(error)
     }
 })
 
@@ -84,27 +98,27 @@ function getIcon() {
             icon.addEventListener("click", async () => {
                 if(!currentUser) {
                     alert("You must be logged in to enter your weather!")
-                    return
-                }
-
-                const userIconRef = ref(database, `users/${currentUser}/icons/${id}`)
-
-                // Check if the user has already ticked the icon
-                const userIconSnapshot = await get(userIconRef)
-                const isChecked = userIconSnapshot.exists() && userIconSnapshot.val() === true
-
-                const counterSnapshot = await get(counterRef)
-                let currentCount = counterSnapshot.exists() ? counterSnapshot.val() : 0
-
-                if(isChecked) {
-                    await set(userIconRef, false)
-                    await set(counterRef, Math.max(currentCount - 1, 0))
                 } else {
-                    await set(userIconRef, true)
-                    await set(counterRef, currentCount + 1)
-                }
+                    const userIconRef = ref(database, `users/${currentUser}/icons/${id}`)
 
-                fetchUserIcons()
+                    // Check if the user has already ticked the icon
+                    const userIconSnapshot = await get(userIconRef)
+                    const isChecked = userIconSnapshot.exists() && userIconSnapshot.val() === true
+
+                    const counterSnapshot = await get(counterRef)
+                    let currentCount = counterSnapshot.exists() ? counterSnapshot.val() : 0
+
+                    if(isChecked) {
+                        await set(userIconRef, false)
+                        await set(counterRef, Math.max(currentCount - 1, 0))
+                    } else {
+                        await set(userIconRef, true)
+                        await set(counterRef, currentCount + 1)
+                    }
+
+                    getIcon()
+                    fetchUserIcons()
+                }
             })
         }
     })
@@ -121,14 +135,20 @@ async function fetchUserIcons() {
             const users = snapshot.val()
             const usersContainer = document.getElementById("users-container")
 
-            usersContainer.innerHTML = "<h2>Users List</h2>"
+            usersContainer.innerHTML =
+                `<div class="bar-container">
+                    <h2>List of User Icons</h2>
+                    <div class="bar-div">
+                        <div class="bar"></div>
+                    </div>
+                </div>`
 
             for(const username in users) {
                 const userIcons = users[username].icons
                 const userDiv = document.createElement("div")
                 userDiv.classList.add("user")
 
-                const userTitle = document.createElement("h2")
+                const userTitle = document.createElement("h3")
                 userTitle.textContent = username
                 userDiv.appendChild(userTitle)
 

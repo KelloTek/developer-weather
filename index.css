@@ -3,18 +3,51 @@ body {
     background-color: #1f1f1f;
     color: white;
     margin: 0;
-    padding: 20px;
 }
 
 h1 {
-    margin-bottom: 5rem;
+    margin-bottom: 0.5rem;
     text-align:center;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Bar Bottom Title */
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar-div {
+    display: flex;
+    justify-content: center;
+}
+
+.bar {
+    width: 10rem;
+    height: 0.25rem;
+    margin-bottom: 3rem;
+    background-color: #0ea5e9;
 }
 
 /* Navigation Bar */
 nav {
+    position: fixed;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    width: 100%;
+    background-color: #1f1f1f;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    width: 100%;
     padding: 10px;
 }
 
@@ -62,11 +95,9 @@ nav {
 
 /* List user */
 #users-container {
+    display: grid;
+    grid-template-columns: 1;
     margin-top: 100px;
-}
-
-#users-container h2 {
-    text-align: center;
 }
 
 .user {
@@ -76,7 +107,7 @@ nav {
     align-items: center;
 }
 
-.user h2 {
+.user h3 {
     margin-right: 30px;
 }
 

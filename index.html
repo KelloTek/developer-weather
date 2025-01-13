@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Developer weather</title>
+    <title>Developer Weather</title>
   </head>
   <body>
     <nav>
-      <div style="display: flex; justify-content: end;">
+      <div class="nav-container" style="justify-content: start;">
+        <h1>Developer Weather</h1>
+      </div>
+      <div class="nav-container" style="justify-content: end;">
         <div class="nav-account-container">
           <button id="username">Login</button>
           <box-icon type="solid" name="user-circle" color="#0ea5e9" size="64px"></box-icon>
@@ -17,7 +19,12 @@
       </div>
     </nav>
 
-    <h1>Select your weather</h1>
+    <div class="bar-container" style="justify-content: start; padding-top: 150px;">
+      <h2>Select your weather</h2>
+      <div class="bar-div">
+        <div class="bar"></div>
+      </div>
+    </div>
 
     <!-- Icon Grid -->
     <main class="icon-grid">
@@ -238,10 +245,9 @@
       </div>
     </main>
 
-    <section id="users-container">
-    </section>
+    <section id="users-container"></section>
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script type="module" src="scripts/weather.js"></script>
+    <script type="module" src="weather.js"></script>
   </body>
 </html>
